@@ -27,4 +27,13 @@
         cursor: pointer;
         transition: background-color 0.2s ease, transform 0.2s ease;
     }
+
+    .btn-gold:hover {
+        background-color: #B18D49;
+        transform: translateY(-2px);
+    }
+
+    .btn-gold:active {
+        transform: translateY(0) scale(0.98);
+    }
 }

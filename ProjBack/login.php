@@ -101,7 +101,8 @@
                         <!-- Botón de acceso -->
                         <button
                             type="button"
-                            class="btn-gold">
+                            class="btn-gold"
+                            onclick="window.location.href='principal.php'">
                             Iniciar sesión
                         </button>
                     </div>
