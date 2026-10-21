@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@1,600&display=swap');
+@import "tailwindcss";
+
+@layer base {
+    a {
+        color: var(--color-blue-600);
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+    input::placeholder {
+        color: #888888;
+        font-style: italic;
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        opacity: 0.5;
+    }
+
+    .btn-gold {
+        background-color: #C6A15B;
+        color: #203B3B;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+}
