@@ -97,13 +97,19 @@
                         </a>
                     </div>
 
-                    <div class="mt-4 flex justify-center">
+                    <div class="mt-4 flex justify-center gap-4">
                         <!-- Botón de acceso -->
                         <button
                             type="button"
                             class="btn-gold"
                             onclick="window.location.href='principal.php'">
                             Iniciar sesión
+                        </button>
+                        <button
+                            type="button"
+                            class="btn-gold"
+                            onclick="window.location.href='registre.php'">
+                            Registre
                         </button>
                     </div>
                 </form>
