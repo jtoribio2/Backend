@@ -18,12 +18,12 @@
     <div class="flex h-full flex-col overflow-hidden">
 
         <!-- CABECERA -->
-        <header class="flex h-[60px] shrink-0 items-center justify-between border-b-[3px] border-[#203B3B] pl-1 pr-1">
+        <header class="flex  shrink-0 items-center justify-between border-b-[3px] border-[#203B3B] pl-1 pr-1">
 
             <!-- Logo superior izquierdo -->
             <a
-                href="principal.php"
-                class="ml-0 block h-14 w-64 shrink-0"
+                href="login.php"
+                class=" block h-14 w-64 shrink-0"
                 aria-label="HABITATE, inicio">
 
                 <img
@@ -74,7 +74,7 @@
                 <article class="grid min-h-0 flex-1 grid-cols-1 gap-4 overflow-hidden bg-[#203B3B] p-4 text-[#F8F7F4] sm:grid-cols-2 sm:items-center">
 
                     <!-- Foto principal: casa 1 -->
-                    <div class="aspect-[4/3] w-full overflow-hidden bg-[#788B7E] sm:aspect-auto sm:h-full sm:max-h-[420px]">
+                    <div class="aspect-4/3 w-full overflow-hidden bg-[#788B7E] sm:aspect-auto sm:h-full sm:max-h-96">
 
                         <img
                             src="./assets/images/casa1.jpg"
