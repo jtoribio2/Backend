@@ -97,14 +97,6 @@
         .input-error {
             border-color: #B42318 !important;
         }
-
-        /* Mantener siempre las mismas dimensiones */
-        #email,
-        #password {
-            box-sizing: border-box;
-            width: 100%;
-            height: 4rem;
-        }
     </style>
 </head>
 
