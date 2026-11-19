@@ -15,7 +15,6 @@
 
     <link rel="stylesheet" href="./css/output.css">
 
-    <!-- Estilos específicos de accesibilidad -->
     <style>
         /* Enlace para saltar al contenido principal */
         .skip-link {
@@ -34,7 +33,7 @@
             position: fixed;
             top: 1rem;
             left: 1rem;
-            z-index: 100;
+            z-index: 300;
             width: auto;
             height: auto;
             margin: 0;
@@ -48,16 +47,19 @@
             outline-offset: 3px;
         }
 
-        /* Foco visible para campos y botones */
+        /* Foco visible */
+        a:focus-visible,
         input:focus-visible,
         button:focus-visible {
             outline: 3px solid #A16D0D;
             outline-offset: 3px;
         }
 
-        /* Mejorar la visibilidad de los campos */
+        /* Campos */
         input {
             color: #252525;
+            box-sizing: border-box;
+            width: 100%;
         }
 
         input::placeholder {
@@ -65,13 +67,54 @@
             opacity: 1;
         }
 
-        /* Evitar desbordamientos de imágenes */
+        /* Imágenes */
         img {
             max-width: 100%;
+            height: auto;
         }
 
         html {
             scroll-behavior: auto;
+        }
+
+        /* Mensajes individuales accesibles para lectores de pantalla */
+        .error-message {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Notificación flotante de errores */
+        #error-summary {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 200;
+            width: min(90%, 24rem);
+            padding: 1rem;
+            border: 1px solid #B42318;
+            border-radius: 0.75rem;
+            background: #FFFFFF;
+            color: #B42318;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            visibility: hidden;
+        }
+
+        #error-summary.is-visible {
+            visibility: visible;
+        }
+
+        /* Campo con error */
+        .input-error {
+            border-color: #B42318 !important;
         }
     </style>
 </head>
@@ -129,9 +172,7 @@
                     <h1
                         id="titulo-registro"
                         class="font-['Inter'] text-6xl font-bold italic tracking-tight sm:text-8xl">
-
                         REGISTRO
-
                     </h1>
 
                 </div>
@@ -139,9 +180,11 @@
 
                 <!-- Formulario de registro -->
                 <form
+                    id="register-form"
                     action="#"
                     method="post"
-                    aria-labelledby="titulo-registro">
+                    aria-labelledby="titulo-registro"
+                    novalidate>
 
                     <!-- Usuario -->
                     <div class="flex flex-col gap-2">
@@ -149,9 +192,7 @@
                         <label
                             for="usuario"
                             class="font-['Inter'] text-xs font-extralight">
-
                             Usuario
-
                         </label>
 
                         <input
@@ -160,7 +201,14 @@
                             name="usuario"
                             placeholder="Introduce tu usuario"
                             autocomplete="username"
+                            aria-describedby="usuario-error"
+                            required
                             class="mb-2 rounded-3xl border-3 border-black px-2 py-3 focus-visible:border-[#A16D0D]">
+
+                        <p
+                            id="usuario-error"
+                            class="error-message">
+                        </p>
 
                     </div>
 
@@ -171,9 +219,7 @@
                         <label
                             for="email"
                             class="font-['Inter'] text-xs font-extralight">
-
                             Correo electrónico
-
                         </label>
 
                         <input
@@ -182,7 +228,14 @@
                             name="email"
                             placeholder="Introduce tu correo"
                             autocomplete="email"
+                            aria-describedby="email-error"
+                            required
                             class="mb-2 rounded-3xl border-3 border-black px-2 py-3 focus-visible:border-[#A16D0D]">
+
+                        <p
+                            id="email-error"
+                            class="error-message">
+                        </p>
 
                     </div>
 
@@ -193,9 +246,7 @@
                         <label
                             for="password"
                             class="font-['Inter'] text-xs font-extralight">
-
                             Contraseña
-
                         </label>
 
                         <input
@@ -204,7 +255,14 @@
                             name="password"
                             placeholder="Introduce tu contraseña"
                             autocomplete="new-password"
+                            aria-describedby="password-error"
+                            required
                             class="mb-2 rounded-3xl border-3 border-black px-2 py-3 focus-visible:border-[#A16D0D]">
+
+                        <p
+                            id="password-error"
+                            class="error-message">
+                        </p>
 
                     </div>
 
@@ -215,9 +273,7 @@
                         <label
                             for="confirm_password"
                             class="font-['Inter'] text-xs font-extralight">
-
                             Repetir la contraseña
-
                         </label>
 
                         <input
@@ -226,7 +282,14 @@
                             name="confirm_password"
                             placeholder="Repite tu contraseña"
                             autocomplete="new-password"
+                            aria-describedby="confirm-password-error"
+                            required
                             class="rounded-3xl border-3 border-black px-2 py-3 focus-visible:border-[#A16D0D]">
+
+                        <p
+                            id="confirm-password-error"
+                            class="error-message">
+                        </p>
 
                     </div>
 
@@ -235,13 +298,10 @@
                     <div class="mt-4 flex justify-center">
 
                         <button
-                            type="button"
+                            type="submit"
                             class="btn-gold rounded-md transition-opacity hover:opacity-80 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#A16D0D]"
-                            aria-label="Crear cuenta en HABITATE"
-                            onclick="window.location.href='login.php'">
-
+                            aria-label="Crear cuenta en HABITATE">
                             Crear cuenta
-
                         </button>
 
                     </div>
@@ -253,6 +313,224 @@
         </section>
 
     </main>
+
+
+    <!-- Notificación accesible de errores -->
+    <div
+        id="error-summary"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true">
+    </div>
+
+
+    <!-- VALIDACIÓN ACCESIBLE DEL FORMULARIO -->
+    <script>
+
+        const registerForm = document.getElementById('register-form');
+
+        const usuarioInput = document.getElementById('usuario');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm_password');
+
+        const usuarioError = document.getElementById('usuario-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const confirmPasswordError = document.getElementById('confirm-password-error');
+
+        const errorSummary = document.getElementById('error-summary');
+
+        let submittedOnce = false;
+
+
+        // Mostrar un error en un campo
+        function showError(input, errorElement, message) {
+
+            input.setAttribute('aria-invalid', 'true');
+            input.classList.add('input-error');
+
+            errorElement.textContent = message;
+
+        }
+
+
+        // Limpiar el error de un campo
+        function clearError(input, errorElement) {
+
+            input.removeAttribute('aria-invalid');
+            input.classList.remove('input-error');
+
+            errorElement.textContent = '';
+
+        }
+
+
+        // Validar todos los campos
+        function validateForm() {
+
+            const errors = [];
+
+            // Limpiar errores anteriores
+            clearError(usuarioInput, usuarioError);
+            clearError(emailInput, emailError);
+            clearError(passwordInput, passwordError);
+            clearError(confirmPasswordInput, confirmPasswordError);
+
+
+            // Validar usuario
+            if (usuarioInput.value.trim() === '') {
+
+                showError(
+                    usuarioInput,
+                    usuarioError,
+                    'El nombre de usuario es obligatorio.'
+                );
+
+                errors.push({
+                    input: usuarioInput,
+                    message: 'Debes introducir un nombre de usuario.'
+                });
+
+            }
+
+
+            // Validar correo electrónico
+            if (emailInput.value.trim() === '') {
+
+                showError(
+                    emailInput,
+                    emailError,
+                    'El correo electrónico es obligatorio.'
+                );
+
+                errors.push({
+                    input: emailInput,
+                    message: 'Debes introducir tu correo electrónico.'
+                });
+
+            } else if (emailInput.validity.typeMismatch) {
+
+                showError(
+                    emailInput,
+                    emailError,
+                    'Introduce una dirección de correo válida.'
+                );
+
+                errors.push({
+                    input: emailInput,
+                    message: 'El correo electrónico no tiene un formato válido.'
+                });
+
+            }
+
+
+            // Validar contraseña
+            if (passwordInput.value === '') {
+
+                showError(
+                    passwordInput,
+                    passwordError,
+                    'La contraseña es obligatoria.'
+                );
+
+                errors.push({
+                    input: passwordInput,
+                    message: 'Debes introducir una contraseña.'
+                });
+
+            }
+
+
+            // Validar repetición de contraseña
+            if (confirmPasswordInput.value === '') {
+
+                showError(
+                    confirmPasswordInput,
+                    confirmPasswordError,
+                    'Debes repetir la contraseña.'
+                );
+
+                errors.push({
+                    input: confirmPasswordInput,
+                    message: 'Debes repetir tu contraseña.'
+                });
+
+            } else if (passwordInput.value !== confirmPasswordInput.value) {
+
+                showError(
+                    confirmPasswordInput,
+                    confirmPasswordError,
+                    'Las contraseñas no coinciden.'
+                );
+
+                errors.push({
+                    input: confirmPasswordInput,
+                    message: 'Las dos contraseñas deben coincidir.'
+                });
+
+            }
+
+
+            // Actualizar la notificación de errores
+            if (errors.length > 0) {
+
+                errorSummary.textContent =
+                    'No se ha podido enviar el formulario. ' +
+                    errors.map(error => error.message).join(' ');
+
+                errorSummary.classList.add('is-visible');
+
+            } else {
+
+                errorSummary.textContent = '';
+                errorSummary.classList.remove('is-visible');
+
+            }
+
+            return errors;
+
+        }
+
+
+        // Validar al enviar el formulario
+        registerForm.addEventListener('submit', function (event) {
+
+            event.preventDefault();
+
+            submittedOnce = true;
+
+            const errors = validateForm();
+
+
+            // Si existen errores, enfocar el primer campo incorrecto
+            if (errors.length > 0) {
+
+                errors[0].input.focus();
+
+                return;
+
+            }
+
+
+            // Si todos los datos son correctos, volver al login
+            window.location.href = 'login.php';
+
+        });
+
+
+        // Actualizar los errores cuando se modifican los campos
+        registerForm.addEventListener('input', function () {
+
+            if (submittedOnce) {
+
+                validateForm();
+
+            }
+
+        });
+
+    </script>
 
 </body>
 
