@@ -1,0 +1,523 @@
+
+/* =========================================================
+   HABITATE - PÁGINA DE VIVIENDAS
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. VARIABLES Y CONFIGURACIÓN GENERAL
+   --------------------------------------------------------- */
+
+:root {
+    --cream: #F8F7F4;
+    --dark-green: #203B3B;
+    --medium-green: #788B7E;
+    --gold: #805400;
+    --light-gold: #D8B56A;
+    --text: #252525;
+    --muted: #595959;
+    --placeholder: #E8E8E5;
+    --border: #D8D6CF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* ---------------------------------------------------------
+   2. FOCO DE LAS TARJETAS
+   --------------------------------------------------------- */
+
+.property-card:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+    position: relative;
+    z-index: 2;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px var(--gold);
+}
+
+/* ---------------------------------------------------------
+   3. CONTENIDO PRINCIPAL
+   --------------------------------------------------------- */
+
+.page-container {
+    width: min(100% - 64px, 1500px);
+    margin: 0 auto;
+    padding: 42px 0 65px;
+}
+
+.page-heading {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.page-title {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+.title-decoration {
+    width: 75px;
+    height: 4px;
+    margin: 18px auto;
+    background: var(--light-gold);
+}
+
+.page-description {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   4. BUSCADOR Y CONTADOR
+   --------------------------------------------------------- */
+
+.toolbar {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 38px;
+    padding: 22px 25px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(32, 59, 59, 0.04);
+}
+
+.search-area {
+    width: 100%;
+    max-width: 650px;
+}
+
+.search-label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--dark-green);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 15px;
+    border: 1px solid #777777;
+    border-radius: 8px;
+    background: #FAFAF8;
+}
+
+.search-box:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(128, 84, 0, 0.15);
+}
+
+.search-icon {
+    margin-right: 12px;
+    color: var(--gold);
+    font-size: 22px;
+}
+
+.search-input {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.search-input::placeholder {
+    color: #595959;
+    opacity: 1;
+}
+
+.search-input:focus-visible {
+    outline: none;
+}
+
+.total-box {
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 19px;
+    background: var(--dark-green);
+    border-radius: 9px;
+    color: white;
+}
+
+.total-number {
+    color: var(--light-gold);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.total-label {
+    margin: 0;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.total-subtitle {
+    margin: 3px 0 0;
+    color: #F1F1ED;
+    font-size: 11px;
+}
+
+/* ---------------------------------------------------------
+   5. CABECERA DEL CATÁLOGO
+   --------------------------------------------------------- */
+
+.catalog-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.catalog-title {
+    margin: 0;
+    color: var(--dark-green);
+    font-size: 23px;
+    font-weight: 750;
+}
+
+.catalog-label {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* ---------------------------------------------------------
+   6. DISTRIBUCIÓN DE LAS VIVIENDAS
+   --------------------------------------------------------- */
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+}
+
+/* ---------------------------------------------------------
+   7. TARJETAS DE VIVIENDAS
+   --------------------------------------------------------- */
+
+.property-card {
+    min-width: 0;
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(32, 59, 59, 0.055);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(32, 59, 59, 0.12);
+}
+
+/* ---------------------------------------------------------
+   8. ZONA DE FOTOGRAFÍA
+   --------------------------------------------------------- */
+
+.property-image {
+    position: relative;
+    height: 205px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--placeholder);
+    border-bottom: 1px solid var(--border);
+}
+
+.property-image::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -80px;
+    top: -100px;
+    border: 1px solid rgba(32, 59, 59, 0.15);
+    border-radius: 50%;
+}
+
+.property-image::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: -70px;
+    bottom: -115px;
+    border: 1px solid rgba(32, 59, 59, 0.15);
+    border-radius: 50%;
+}
+
+.image-placeholder {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    color: #595959;
+}
+
+.image-placeholder svg {
+    width: 58px;
+    height: 58px;
+    stroke: #595959;
+    stroke-width: 1.5;
+    fill: none;
+}
+
+.image-placeholder span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Referencia de la vivienda */
+.property-reference {
+    position: absolute;
+    z-index: 2;
+    top: 13px;
+    left: 13px;
+    padding: 7px 11px;
+    background: var(--dark-green);
+    border-radius: 5px;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Estado de la vivienda */
+.property-status {
+    position: absolute;
+    z-index: 2;
+    top: 13px;
+    right: 13px;
+    padding: 6px 10px;
+    background: white;
+    border: 1px solid #777777;
+    border-radius: 5px;
+    color: var(--dark-green);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   9. INFORMACIÓN DE LA VIVIENDA
+   --------------------------------------------------------- */
+
+.property-content {
+    padding: 20px;
+}
+
+.property-location-label {
+    margin: 0 0 7px;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.property-address {
+    min-height: 48px;
+    margin: 0 0 13px;
+    color: var(--dark-green);
+    font-size: 18px;
+    font-weight: 750;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.property-description-label {
+    margin: 0 0 6px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.property-description {
+    min-height: 66px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   10. PRECIO
+   --------------------------------------------------------- */
+
+.property-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #ECEAE5;
+}
+
+.price-label {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.price-value {
+    color: var(--dark-green);
+    font-size: 21px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   11. PROPIETARIO
+   --------------------------------------------------------- */
+
+.property-owner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 13px;
+    padding-top: 12px;
+    border-top: 1px solid #ECEAE5;
+}
+
+.owner-label {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.owner-value {
+    color: var(--dark-green);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   12. MENSAJE SIN RESULTADOS
+   --------------------------------------------------------- */
+
+.no-results {
+    padding: 55px 20px;
+    text-align: center;
+    color: var(--muted);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.no-results[hidden],
+.property-card[hidden] {
+    display: none;
+}
+
+/* ---------------------------------------------------------
+   13. DISEÑO RESPONSIVE - TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+    .property-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---------------------------------------------------------
+   14. DISEÑO RESPONSIVE - MÓVIL
+   --------------------------------------------------------- */
+
+@media (max-width: 650px) {
+    .page-container {
+        width: calc(100% - 32px);
+        padding-top: 30px;
+    }
+
+    .page-heading {
+        margin-bottom: 25px;
+    }
+
+    .page-title {
+        font-size: clamp(27px, 8vw, 38px);
+    }
+
+    .toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 17px;
+    }
+
+    .total-box {
+        width: 100%;
+    }
+
+    .property-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .property-image {
+        height: 210px;
+    }
+
+    .catalog-title {
+        font-size: 19px;
+    }
+}
+
+/* ---------------------------------------------------------
+   15. MOVIMIENTO REDUCIDO
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .property-card:hover {
+        transform: none;
+    }
+}

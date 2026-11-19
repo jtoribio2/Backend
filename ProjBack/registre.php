@@ -11,112 +11,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Registro | HABITATE</title>
-    <meta name="description" content="Crea tu cuenta en HABITATE para descubrir viviendas y encontrar tu hogar ideal.">
 
+    <meta
+        name="description"
+        content="Crea tu cuenta en HABITATE para descubrir viviendas y encontrar tu hogar ideal.">
+
+    <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./css/output.css">
 
-    <style>
-        /* Enlace para saltar al contenido principal */
-        .skip-link {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
+    <!-- Estilos globales y accesibilidad -->
+    <link rel="stylesheet" href="./css/global.css">
 
-        .skip-link:focus {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 300;
-            width: auto;
-            height: auto;
-            margin: 0;
-            padding: 1rem;
-            overflow: visible;
-            clip: auto;
-            white-space: normal;
-            background: #FFFFFF;
-            color: #252525;
-            outline: 3px solid #A16D0D;
-            outline-offset: 3px;
-        }
-
-        /* Foco visible */
-        a:focus-visible,
-        input:focus-visible,
-        button:focus-visible {
-            outline: 3px solid #A16D0D;
-            outline-offset: 3px;
-        }
-
-        /* Campos */
-        input {
-            color: #252525;
-            box-sizing: border-box;
-            width: 100%;
-        }
-
-        input::placeholder {
-            color: #595959;
-            opacity: 1;
-        }
-
-        /* Imágenes */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        html {
-            scroll-behavior: auto;
-        }
-
-        /* Mensajes individuales accesibles para lectores de pantalla */
-        .error-message {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Notificación flotante de errores */
-        #error-summary {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 200;
-            width: min(90%, 24rem);
-            padding: 1rem;
-            border: 1px solid #B42318;
-            border-radius: 0.75rem;
-            background: #FFFFFF;
-            color: #B42318;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            visibility: hidden;
-        }
-
-        #error-summary.is-visible {
-            visibility: visible;
-        }
-
-        /* Campo con error */
-        .input-error {
-            border-color: #B42318 !important;
-        }
-    </style>
+    <!-- Estilos específicos del registro -->
+    <link rel="stylesheet" href="./css/registre.css">
 </head>
 
 <body class="min-h-screen bg-[#F8F7F4] text-[#252525]">
@@ -126,9 +33,11 @@
         Saltar al contenido principal
     </a>
 
+
     <main
         id="main"
         class="grid min-h-screen grid-cols-1 md:grid-cols-2">
+
 
         <!-- PANEL IZQUIERDO: LOGO -->
         <section
@@ -144,6 +53,7 @@
                     class="w-150 h-150 mx-auto mb-4">
 
             </div>
+
 
             <!-- Detalles decorativos -->
             <div
@@ -533,5 +443,4 @@
     </script>
 
 </body>
-
 </html>

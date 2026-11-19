@@ -11,93 +11,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login | HABITATE</title>
-    <meta name="description" content="Inicia sesión en HABITATE para acceder a tu cuenta.">
 
+    <meta
+        name="description"
+        content="Inicia sesión en HABITATE para acceder a tu cuenta.">
+
+    <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./css/output.css">
 
-    <style>
-        .skip-link {
-            position: absolute;
-            top: -100px;
-            left: 1rem;
-            z-index: 100;
-            padding: 0.75rem 1rem;
-            background: #F8F7F4;
-            color: #252525;
-            border: 2px solid #A16D0D;
-            border-radius: 0.5rem;
-        }
+    <!-- Estilos globales y accesibilidad -->
+    <link rel="stylesheet" href="./css/global.css">
 
-        .skip-link:focus {
-            top: 1rem;
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible {
-            outline: 3px solid #A16D0D;
-            outline-offset: 4px;
-        }
-
-        input {
-            color: #252525;
-        }
-
-        input::placeholder {
-            color: #595959;
-            opacity: 1;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        html {
-            scroll-behavior: auto;
-        }
-
-        /* Mensajes de error accesibles sin ocupar espacio visual */
-        .error-message {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Notificación flotante de errores */
-        #error-summary {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 200;
-            width: min(90%, 24rem);
-            box-sizing: border-box;
-            padding: 1rem;
-            border: 1px solid #B42318;
-            border-radius: 0.75rem;
-            background: #FFFFFF;
-            color: #B42318;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            font-size: 0.875rem;
-            line-height: 1.4;
-            visibility: hidden;
-        }
-
-        #error-summary.is-visible {
-            visibility: visible;
-        }
-
-        /* Campos con error */
-        .input-error {
-            border-color: #B42318 !important;
-        }
-    </style>
+    <!-- Estilos específicos del login -->
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <body class="min-h-screen bg-[#F8F7F4] text-[#252525]">
@@ -107,7 +33,9 @@
         Saltar al contenido principal
     </a>
 
+
     <main id="main" class="grid min-h-screen grid-cols-1 md:grid-cols-2">
+
 
         <!-- Panel izquierdo: logo -->
         <section
@@ -123,6 +51,7 @@
                     class="w-150 h-150 mx-auto mb-4" />
 
             </div>
+
 
             <!-- Detalles decorativos -->
             <div
@@ -146,14 +75,17 @@
             <div class="max-w-md w-full">
 
                 <div class="mb-6 text-center">
+
                     <h1
                         id="titulo-login"
                         class="text-6xl font-bold italic tracking-tight sm:text-8xl font-['Inter']">
                         LOGIN
                     </h1>
+
                 </div>
 
 
+                <!-- Formulario -->
                 <form
                     id="login-form"
                     action="#"
@@ -161,7 +93,7 @@
                     aria-labelledby="titulo-login"
                     novalidate>
 
-                    <!-- Usuario -->
+                    <!-- Usuario / correo electrónico -->
                     <div class="flex flex-col gap-2">
 
                         <label
@@ -269,6 +201,7 @@
 
     <!-- Validación accesible del formulario -->
     <script>
+
         const loginForm = document.getElementById('login-form');
 
         const emailInput = document.getElementById('email');
@@ -284,34 +217,42 @@
 
         // Mostrar un error en un campo
         function showError(input, errorElement, message) {
+
             input.setAttribute('aria-invalid', 'true');
             input.classList.add('input-error');
             errorElement.textContent = message;
+
         }
 
 
         // Limpiar el error de un campo
         function clearError(input, errorElement) {
+
             input.removeAttribute('aria-invalid');
             input.classList.remove('input-error');
             errorElement.textContent = '';
+
         }
 
 
         // Mostrar el resumen flotante de errores
         function showErrorSummary(errors) {
+
             errorSummary.textContent =
                 'No se ha podido enviar el formulario. ' +
                 errors.map(error => error.message).join(' ');
 
             errorSummary.classList.add('is-visible');
+
         }
 
 
         // Ocultar el resumen de errores
         function clearErrorSummary() {
+
             errorSummary.textContent = '';
             errorSummary.classList.remove('is-visible');
+
         }
 
 
@@ -323,6 +264,7 @@
             clearErrorSummary();
 
             const errors = [];
+
 
             // Comprobar el correo electrónico
             if (emailInput.value.trim() === '') {
@@ -380,9 +322,11 @@
                 errors[0].input.focus();
 
                 return false;
+
             }
 
             return true;
+
         }
 
 
@@ -426,5 +370,4 @@
     </script>
 
 </body>
-
 </html>

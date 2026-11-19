@@ -1,0 +1,63 @@
+
+/* =========================================================
+   HABITATE - PÁGINA DE REGISTRO
+   ========================================================= */
+
+/* Campos del formulario */
+#register-form input {
+    color: #252525;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#register-form input::placeholder {
+    color: #595959;
+    opacity: 1;
+}
+
+/* Mensajes individuales accesibles para lectores de pantalla */
+.error-message {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Notificación flotante de errores */
+#error-summary {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 200;
+    width: min(90%, 24rem);
+    padding: 1rem;
+    border: 1px solid #B42318;
+    border-radius: 0.75rem;
+    background: #FFFFFF;
+    color: #B42318;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    visibility: hidden;
+}
+
+/* Mostrar notificación cuando hay errores */
+#error-summary.is-visible {
+    visibility: visible;
+}
+
+/* Campo que contiene un error */
+#register-form input.input-error {
+    border-color: #B42318 !important;
+}
+
+/* Mantener visible el indicador de foco en campos con error */
+#register-form input.input-error:focus-visible {
+    outline: 3px solid #805400;
+    outline-offset: 3px;
+}

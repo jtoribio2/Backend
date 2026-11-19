@@ -1,0 +1,62 @@
+
+/* =========================================================
+   HABITATE - PÁGINA DE LOGIN
+   ========================================================= */
+
+/* Campos del formulario */
+#login-form input {
+    color: #252525;
+}
+
+#login-form input::placeholder {
+    color: #595959;
+    opacity: 1;
+}
+
+/* Mensajes individuales accesibles para lectores de pantalla */
+.error-message {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Notificación flotante de errores */
+#error-summary {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 200;
+    width: min(90%, 24rem);
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 1px solid #B42318;
+    border-radius: 0.75rem;
+    background: #FFFFFF;
+    color: #B42318;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    visibility: hidden;
+}
+
+/* Mostrar la notificación */
+#error-summary.is-visible {
+    visibility: visible;
+}
+
+/* Campos con errores */
+#login-form input.input-error {
+    border-color: #B42318 !important;
+}
+
+/* Mantener el foco visible en campos con error */
+#login-form input.input-error:focus-visible {
+    outline: 3px solid #805400;
+    outline-offset: 3px;
+}

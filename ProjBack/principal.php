@@ -2,6 +2,7 @@
 <?php
 // Página principal de HABITATE.
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,59 +11,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>HABITATE | Encuentra tu vivienda ideal</title>
-    <meta name="description" content="Descubre viviendas destacadas y encuentra tu hogar ideal con HABITATE.">
 
+    <meta
+        name="description"
+        content="Descubre viviendas destacadas y encuentra tu hogar ideal con HABITATE.">
+
+    <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./css/output.css">
 
-    <!-- Estilos específicos de accesibilidad -->
-    <style>
-        /* Enlace para saltar al contenido principal */
-        .skip-link {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .skip-link:focus {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 100;
-            width: auto;
-            height: auto;
-            margin: 0;
-            padding: 1rem;
-            overflow: visible;
-            clip: auto;
-            white-space: normal;
-            background: #FFFFFF;
-            color: #252525;
-            outline: 3px solid #A16D0D;
-            outline-offset: 3px;
-        }
-
-        /* Foco visible para enlaces y botones */
-        a:focus-visible,
-        button:focus-visible {
-            outline: 3px solid #A16D0D;
-            outline-offset: 3px;
-        }
-
-        /* Evitar desbordamientos de imágenes */
-        img {
-            max-width: 100%;
-        }
-
-        html {
-            scroll-behavior: auto;
-        }
-    </style>
+    <!-- Estilos globales y accesibilidad -->
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 
 <body class="min-h-screen bg-[#F8F7F4] text-[#252525]">
@@ -90,6 +48,7 @@
 
             </a>
 
+
             <!-- Botón de valoración -->
             <button
                 type="button"
@@ -102,6 +61,7 @@
                 <span aria-hidden="true">★</span>
 
             </button>
+
 
             <!-- Botón del menú -->
             <button
@@ -123,6 +83,7 @@
             id="main"
             class="grid flex-1 grid-cols-1 gap-4 p-3 lg:grid-cols-[minmax(0,1fr)_220px]">
 
+
             <!-- ZONA IZQUIERDA -->
             <section
                 class="flex min-w-0 flex-col"
@@ -142,6 +103,7 @@
                 <article
                     class="grid flex-1 grid-cols-1 gap-4 bg-[#203B3B] p-4 text-[#F8F7F4] sm:grid-cols-2 sm:items-center"
                     aria-labelledby="titulo-vivienda">
+
 
                     <!-- Fotografía principal seleccionable -->
                     <a
@@ -202,6 +164,7 @@
                     <!-- Espacio vacío debajo de la foto principal -->
                     <div class="hidden sm:block" aria-hidden="true"></div>
 
+
                     <!-- Miniaturas seleccionables -->
                     <div class="grid grid-cols-4 gap-2 bg-[#203B3B] p-2">
 
@@ -217,6 +180,7 @@
 
                         </a>
 
+
                         <a
                             href="#"
                             class="block h-16 overflow-hidden"
@@ -229,6 +193,7 @@
 
                         </a>
 
+
                         <a
                             href="#"
                             class="block h-16 overflow-hidden"
@@ -240,6 +205,7 @@
                                 class="h-full w-full object-cover">
 
                         </a>
+
 
                         <a
                             href="#"
@@ -265,6 +231,7 @@
                 class="grid grid-rows-3 gap-4 bg-[#203B3B] p-4"
                 aria-label="Otras viviendas destacadas">
 
+
                 <!-- Vivienda 2 -->
                 <a
                     href="#"
@@ -278,6 +245,7 @@
 
                 </a>
 
+
                 <!-- Vivienda 3 -->
                 <a
                     href="#"
@@ -290,6 +258,7 @@
                         class="h-full w-full object-cover">
 
                 </a>
+
 
                 <!-- Vivienda 4 -->
                 <a
@@ -332,5 +301,4 @@
     </div>
 
 </body>
-
 </html>
