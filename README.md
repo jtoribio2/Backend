@@ -34,3 +34,5 @@ Una vez dentro de la página principal:
 ## Importante
 
 XAMPP debe estar encendido y el servicio Apache debe estar iniciado para que la página web funcione correctamente.
+
+El documento del autotest esta en la raiz del proyecto

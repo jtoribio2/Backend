@@ -161,7 +161,7 @@
                     <div class="flex min-w-0 flex-col self-start">
 
                         <h2 class="mb-7 mt-0 text-center font-['Inter'] text-2xl font-bold italic sm:text-5xl">
-                            NOVETATS
+                            NOVEDADES
                         </h2>
 
                         <h3
